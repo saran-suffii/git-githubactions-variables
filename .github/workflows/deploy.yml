@@ -17,7 +17,7 @@ jobs:
     steps:
       - name: Output information
         run: |
-          echo "Mongo db user name $MONGODB_DB_NAME"
+          echo "Mongo db user name ${{ vars.MONGODB_DB_NAME }}"
           echo "mongo db Password $MONGODB_PASSWORD"
           echo "mongo cluster address $MONGODB_CLUSTER_ADDRESS"
           echo "port is $PORT"
