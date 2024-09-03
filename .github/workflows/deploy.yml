@@ -27,7 +27,7 @@ jobs:
         env:
           PORT: 3000
         run: |        
-          echo "MONGODB_DB_NAME: $MONGODB_DB_NAME"
-          echo "MONGODB_USERNAME: $MONGODB_USERNAME"
-          echo "${{ env.test.MONGODB_USERNAME }}"
-          echo "${{  env.port  }}"
+          echo "MONGODB_DB_NAME:" $MONGODB_DB_NAME
+          echo "MONGODB_USERNAME:" $MONGODB_USERNAME
+          echo "user"${{ env.test.MONGODB_USERNAME }}
+          echo  "port" ${{  env.port  }}
