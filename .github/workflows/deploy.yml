@@ -1,0 +1,33 @@
+name: Deployment
+on:
+  push:
+    branches:
+      - master
+env:
+  MONGODB_DB_NAME: gha-demo
+jobs:
+  test:
+    environment: testing
+    runs-on: ubuntu-latest
+    env:
+      MONGODB_PASSWORD: ${{ secrets.MONGODB_PASSWORD }}
+      PORT: 8080
+    steps:
+      - name: Output information
+        run: |
+          echo "MONGODB_USERNAME: $MONGODB_USERNAME"
+          echo "Mongo db user name $MONGODB_USERNAME"
+          echo "mongo db Password $MONGODB_PASSWORD"
+          echo "mongo cluster address $MONGODB_CLUSTER_ADDRES"
+  deploy:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Output information
+        env:
+          PORT: 3000
+        run: |        
+          echo "MONGODB_DB_NAME: $MONGODB_DB_NAME"
+          echo "MONGODB_USERNAME: $MONGODB_USERNAME"
+          echo "${{ env.test.MONGODB_USERNAME }}"
+          echo "${{  env.port  }}"
