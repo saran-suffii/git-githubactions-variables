@@ -7,7 +7,7 @@ env:
   MONGODB_DB_NAME_global: GLOBAL NAME
 jobs:
   test:
-    # environment: testing
+    environment: test
     runs-on: ubuntu-latest
     env:
       PORT: 8080
@@ -19,7 +19,7 @@ jobs:
         env:
           stepvariable: stepcheck 
         run: |
-          echo "Mongo db user name ${{ vars.MONGODB_DB_NAME }}"
+          echo "Mongo db name ${{ vars.DB_NAME }}"
           echo "mongo db Password $MONGODB_PASSWORD"
           echo "mongo cluster address ${{ vars.MONGODB_CLUSTER_ADDRES }}"
           echo "port is $PORT"
