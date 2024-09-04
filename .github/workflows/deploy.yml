@@ -17,9 +17,11 @@ jobs:
     steps:
       - name: Output information
         env:
+          stepvariable: stepcheck 
         run: |
           echo "Mongo db user name ${{ vars.MONGODB_DB_NAME }}"
           echo "mongo db Password $MONGODB_PASSWORD"
           echo "mongo cluster address ${{ var.MONGODB_CLUSTER_ADDRES }}"
           echo "port is $PORT"
           echo "global name $MONGODB_DB_NAME_global"
+          echo "stepvariable $stepvariable"
