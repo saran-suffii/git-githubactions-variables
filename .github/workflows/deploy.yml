@@ -11,13 +11,15 @@ jobs:
     runs-on: ubuntu-latest
     env:
       PORT: 8080
-      MONGODB_CLUSTER_ADDRESS: "cluster0.ntrwp.mongodb.net"
+      # MONGODB_CLUSTER_ADDRESS: "cluster0.ntrwp.mongodb.net"
       # MONGODB_USERNAME: ${{ secrets.MONGODB_USERNAME }}
       MONGODB_PASSWORD: ${{ secrets.MONGODB_PASSWORD }}
     steps:
       - name: Output information
+        env:
         run: |
           echo "Mongo db user name ${{ vars.MONGODB_DB_NAME }}"
           echo "mongo db Password $MONGODB_PASSWORD"
-          echo "mongo cluster address $MONGODB_CLUSTER_ADDRESS"
+          echo "mongo cluster address ${{ var.MONGODB_CLUSTER_ADDRES }}"
           echo "port is $PORT"
+          echo "global name $MONGODB_DB_NAME_global"
